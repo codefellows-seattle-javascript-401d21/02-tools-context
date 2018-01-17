@@ -19,21 +19,7 @@
 
 - line 5:  bar is defined in the variable object with a pointer to the function stored in heap memory.  There is nothing to store in the arguments object for this function.  The scope of this function is global in this script. 
 
-- line 6 - 13:  Theses lines are ignored for now because they are inside the function declaration.
-
-  - line 6:  The variable foo is defined in the variable object with a value of undefined within the scope of the function bar.
-  
-  - line 8:  baz is defined in the variable object with a pointer to the function stored in heap memory.  The parameter foo is defined in the argument object in the scope of baz.
-
-    - line 10: foo is not using a declaration so it is ignored at this time. 
-
-    - line 11: bam is not using a declaration so it is ignored at this time.
-
-  - line 12: This closes the function, scope and context of baz. 
-
-  - Line 13: baz() is an invocation not a declaration so it is ignored at this time.
-
-- line 14: This closes the function, scope and context of bar.
+- line 6 - 14:  Theses lines are ignored for now because they are inside the function declaration.
   
 - line 16 - 19: These lines do not contain declarations so they are ignored at this time.
 
@@ -50,73 +36,77 @@
 
   - line 5 - 14:  These lines are a function declaration of bar.  These lines are skipped.
 
-  - line 16:  The function bar is invoked. bar has a pointer to its function in the heap memory.  It is now time to enter the creation phase for bar.
+  - line 16:  The function bar is invoked. bar has a pointer to its function in the heap memory.  
+  
+  Time to enter the creation phase for bar.
 
-    - line 6:  The variable foo is defined in the variable object with a value of undefined within the scope of the function bar.
+  - line 6:  The variable foo is defined in the variable object with a value of undefined within the scope of the function bar.
 
-    - line 8:  baz is defined in the variable object with a pointer to the function stored in heap memory.  The parameter foo is defined in the argument object in the scope of baz.
+  - line 8:  baz is defined in the variable object with a pointer to the function stored in heap memory.  The parameter foo is defined in the argument object in the scope of baz.
 
-    - line 9 - 11:  Theses lines are ignored for now because they are inside the function declaration.
+  - line 9 - 11:  Theses lines are ignored for now because they are inside the function declaration.
 
-    - Line 13: baz() is an invocation not a declaration so it is ignored at this time.
+  - Line 13: baz() is an invocation not a declaration so it is ignored at this time.
 
-    - Time to run the code for function  bar
+  Time to run the code for function  bar
 
-      - Line 6:  The variable foo is assigned the value of 'baz' in the variable object in scope of the function bar;
+  - Line 6:  The variable foo is assigned the value of 'baz' in the variable object in scope of the function bar;
 
-      - Line 8 - 12: These lines are a function declaration of bar.  These lines are skipped.
+  - Line 8 - 12: These lines are a function declaration of bar.  These lines are skipped.
 
-      - line 13: The function baz is invoked. baz has a pointer to its function in the heap memory.  It is now time to enter the creation phase for baz.
+  - line 13: The function baz is invoked. baz has a pointer to its function in the heap memory.  
+      
+  Time to enter the creation phase for baz.
 
-        - lines 10 - 11: These lines are skipped because they are not declarations.
+  - lines 10 - 11: These lines are skipped because they are not declarations.
 
-     - Time to run the code for function baz
+  Time to run the code for function baz
 
-        - line 10: the variable foo is assigned the value of 'bam' in the variable object within the scope of baz.
+  - line 10: the variable foo is assigned the value of 'bam' in the variable object within the scope of baz.
 
-        - line 11: The variable bam has not been declared and the script throws a reference error.
+  - line 11: The variable bam has not been declared and the script throws a reference error.
 
-     - line 17:  Never gets here because an error was thrown.  If an error had not been thrown, foo would evaluate to 'bar'
+  - line 17:  Never gets here because an error was thrown.  If an error had not been thrown, foo would evaluate to 'bar'
 
-      - line 18: The variable bam has not been declared and the script throws a reference error.
+  - line 18: The variable bam has not been declared and the script throws a reference error.
 
-      - line 19: Never gets here.  If an error had not been thrown, baz has not been declared and the script throws a reference error.
+  - line 19: Never gets here.  If an error had not been thrown, baz has not been declared and the script throws a reference error.
 
 
-  ### 4. During the second stage of execution how many scopes have been registered by the engine?
+### 4. During the second stage of execution how many scopes have been registered by the engine?
 
-      #### Which segments of the code do they belong to?
-      #### Please identify any variables/refs and which scope each belongs to?
+  #### Which segments of the code do they belong to?
+  #### Please identify any variables/refs and which scope each belongs to?
 
-  - 1. Global scope
+  1. Global scope
     
-  - 2. Scope of function bar
+  2. Scope of function bar
 
-  - 3. Scope of function baz
+  3. Scope of function baz
 
-    - line 3: var foo has global scope
+  - line 3: var foo has global scope
 
-    - Line 6: var foo declared inside bar() creates its own value in the scope of bar()
+  - Line 6: var foo declared inside bar() creates its own value in the scope of bar()
 
-    - line 8: foo as a parameter creates its own scope for foo in baz;
+  - line 8: foo as a parameter creates its own scope for foo in baz;
 
-    - Line 10:  The variable foo, created by declaring foo as a parameters is assigned the value of 'bam'
+  - Line 10:  The variable foo, created by declaring foo as a parameters is assigned the value of 'bam'
 
-    - Line 11: bam has not been declared and therefore throws a reference error, breaking the script.
+  - Line 11: bam has not been declared and therefore throws a reference error, breaking the script.
 
-    If an error had not been thrown...
+  If an error had not been thrown...
 
-    - Line 13:  baz() is invoked in the scope of bar() where it is available.
+  - Line 13:  baz() is invoked in the scope of bar() where it is available.
 
-    - Line 16:  bar() is invoked in the global scope where it is available.
+  - Line 16:  bar() is invoked in the global scope where it is available.
 
-    - Line 17: foo in the global scope evaluates as 'bar';
+  - Line 17: foo in the global scope evaluates as 'bar';
 
-    - Line 18: bam has not been declared and therefore throws a reference error, breaking the script.
+  - Line 18: bam has not been declared and therefore throws a reference error, breaking the script.
 
-    If an error had not been thrown...
+  If an error had not been thrown...
 
-    - Line 19: baz() is invoked in the global scope where it not been declared and therefore throws a reference error, breaking the script.
+  - Line 19: baz() is invoked in the global scope where it not been declared and therefore throws a reference error, breaking the script.
 
 
   ### 5. When line 13 invokes the baz function, which foo will be assigned a value of bam? More specifically, bam will be assigned to the foo in ??? scope. Give a brief description in your own words to support your conclusion.
@@ -143,17 +133,17 @@
 
    - Line 16:  bar() is invoked in the global scope where it is available.  bar invokes baz. bam has not been declared and therefore throws a reference error, breaking the script.
 
-    If an error had not been thrown...
+  If an error had not been thrown...
 
-    - Line 16:  bar() would return undefined.
+  - Line 16:  bar() would return undefined.
 
-   - Line 17: foo would return 'bar';
+  - Line 17: foo would return 'bar';
 
-   - Line 18: bam has not been declared and therefore throws a reference error, breaking the script.
+  - Line 18: bam has not been declared and therefore throws a reference error, breaking the script.
 
-    If an error had not been thrown...
+  If an error had not been thrown...
 
-    - Line 19: baz() is invoked in the global scope where it not been declared and therefore throws a reference error, breaking the script.
+  - Line 19: baz() is invoked in the global scope where it not been declared and therefore throws a reference error, breaking the script.
 
 
 
