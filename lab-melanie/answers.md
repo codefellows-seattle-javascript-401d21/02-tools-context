@@ -41,7 +41,7 @@ Activation/Execution Stage:
 
 #### Answer
 Visual:
-![visual](visual.png)
+![visual](visual1.png)
 
 Three scopes have been registered, global, bar function scope and baz function scope. The global scope belongs to the context of the whole file and contains the foo variable with value 'bar' and references the bar function and baz function (though baz function is undefined in global scope).
 
