@@ -9,10 +9,11 @@ The compilation involves the registering of variables in their scope and hoistin
 First, we recognize the global variables foo and function bar.
 
 Then, we enter the scope of the function bar, and we register a separate variable foo and function baz.
-Finally, we enter the scope of the baz function and register foo (from the argument passed in) there. 
+
+Finally, we enter the scope of the baz function and register foo there. 
 
 ###### 3. Write an explanation, using as much space as you need, relating to how the second stage of execution for this file operates.
-The actual execution of the code happens in the second phase. 
+The actual assignment/execution of the code happens in the second phase. 
 
 We check to see that each variable was registered in their scope (first, variable foo and function bar in the global scope).
 
@@ -22,7 +23,8 @@ When we execute bam in the bar scope, we enter the baz scope and check for the v
 
 Then, we check the assignment for the variable foo (returns bar).
 
-Then, we check the assignment for the variable bam. In strict mode, there is no bam variable in our scope (the global scope), so we will receive a reference error. In non-strict mode, it will return yay.
+Then, we check the registration for the variable bam. In strict mode, there is no bam variable in our scope (the global scope), so we will receive a reference error. In non-strict mode, it will assign and return yay.
+
 Then, we will check if the function baz was registered in the current (global) scope and we will also receive a reference error.
 
 ###### 4. During the second stage of execution how many scopes have been registered by the engine? Which segments of the code do they belong to? Please identify any variables/refs and which scope each belongs to?
