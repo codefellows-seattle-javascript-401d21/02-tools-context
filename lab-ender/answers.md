@@ -9,7 +9,7 @@ _Compilation and execution, in that order._
 2. Write an explanation, using as much space as you need, relating to how the first stage of execution for this file operates.
     - For example, identify the high level steps in a line by line overview and then define what each of those steps are accomplishing.
 
-_compiler finds var declaration, foo, in global scope_
+`_compiler finds var declaration, foo, in global scope_
 
     _global scope registers foo_
 
@@ -29,7 +29,7 @@ _compiler finds function declaration, bar(), in global scope_
 
         _compiler finds var declaration, bam, in baz() scope_
 
-          _baz() scope registers bam_
+          _baz() scope registers bam_`
 
 3. Write an explanation, using as much space as you need, relating to how the second stage of execution for this file operates.
     - For example, identify the high level steps in a line by line overview and then define what each of those steps are accomplishing.
