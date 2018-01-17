@@ -1,7 +1,29 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) 02: Tools and Context
 ======
 
-### Answers:
+### Given:
+
+        'use strict'
+        
+        var foo = 'bar';
+        
+        function bar() {
+          var foo = 'baz';
+        
+          function baz(foo) {
+        
+            foo = 'bam';
+            bam = 'yay';
+          }
+          baz();
+        }
+        
+        bar();
+        foo;
+        bam;
+        baz();
+
+### Questions and Answers:
 1. When this code is run in Node, e.g. `node index.js`, what are the two stages of execution for this file called, and which order do they happen in?
 
 _Compilation and execution, in that order._
