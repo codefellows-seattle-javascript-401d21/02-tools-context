@@ -37,5 +37,3 @@ Given the code linked [HERE](https://gist.github.com/sjschmidt44/556d31146a2b1ff
 6. Which scope, if any, will the variable `bam` on line 11 be registered to when the first stage of execution occurs on this file? Provide a brief description in your own words to support your conclusion.
 
 7. For each line, 16 through 19, what is the return value for each?
-
-
