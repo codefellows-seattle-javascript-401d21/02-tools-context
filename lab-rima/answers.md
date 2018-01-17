@@ -9,13 +9,13 @@
 
 -- During compilation stage: In this stage, it only declares all identifiers to look them up later.
 * Global scope:
-    - 1. Line 3 is a declaration for variable foo. In global scope, foo is stored.
-    - 2. Line 5 is a declaration for function bar. In global scope, bar is stored.
+    1. Line 3 is a declaration for variable foo. In global scope, foo is stored.
+    2. Line 5 is a declaration for function bar. In global scope, bar is stored.
 * Scope of function bar
-    - 3. Line 6 is another declaration for variable foo. In scope of function bar, foo is stored but this foo is different from foo in global scope.
-    - 4. Line 8 is a declaration for function baz. In scope of function bar, baz is stored.
+    3. Line 6 is another declaration for variable foo. In scope of function bar, foo is stored but this foo is different from foo in global scope.
+    4. Line 8 is a declaration for function baz. In scope of function bar, baz is stored.
 * Scope of function baz
-    - 5. Line 8, foo is passed to baz so it declares variable foo. This is different foo from two other foo that have been declared. In scope of function baz, foo is stored and this is different from the other foo that have been declared.
+    5. Line 8, foo is passed to baz so it declares variable foo. This is different foo from two other foo that have been declared. In scope of function baz, foo is stored and this is different from the other foo that have been declared.
 
 
 3. Write an explanation, using as much space as you need, relating to how the second stage of execution for this file operates.
@@ -23,14 +23,14 @@
 
 -- During execution stage: In this stage, it actually runs code and while running it looks up all identifiers and defines all identifiers.
 * Global scope:
-    - 1. Line 3 checks if foo has been declared. Foo is in global scope so it assigns value 'bar' to it.
-    - 2. Line 16 calls function bar.
+    1. Line 3 checks if foo has been declared. Foo is in global scope so it assigns value 'bar' to it.
+    2. Line 16 calls function bar.
 * Scope of function bar
-    - 3. Line 6 checks if foo has been declared and it is so assigns value 'baz' to it.
-    - 4. Line 13 calls function baz.
+    3. Line 6 checks if foo has been declared and it is so assigns value 'baz' to it.
+    4. Line 13 calls function baz.
 * Scope of function baz
-    - 5. Line 10 checks if foo has been declared and it is so assigns value 'bam' to it.
-    - 6. Line 11 checks if bam has been declared and it isn't in the current scope so it looks up in scope of funciton bar and still it's not declared. It looks up in global scope, and it's not there so it throws a Reference error. This terminates the program.
+    5. Line 10 checks if foo has been declared and it is so assigns value 'bam' to it.
+    6. Line 11 checks if bam has been declared and it isn't in the current scope so it looks up in scope of funciton bar and still it's not declared. It looks up in global scope, and it's not there so it throws a Reference error. This terminates the program.
 
 
 4. During the second stage of execution how many scopes have been registered by the engine?
@@ -39,9 +39,9 @@
 
 -- Three scopes.
     
-    - 1. Global scope: Line 3, 5, 6, 14, 16, 17, 18, 19; foo, bar    
-    - 2. Scope of function bar: Line 6 - 13 (except 'foo' passed into function baz); foo, baz
-    - 3. Scope of funcion baz: Line 10, 11, the 'foo' in line 13; foo
+- 1. Global scope: Line 3, 5, 6, 14, 16, 17, 18, 19; foo, bar    
+- 2. Scope of function bar: Line 6 - 13 (except 'foo' passed into function baz); foo, baz
+- 3. Scope of funcion baz: Line 10, 11, the 'foo' in line 13; foo
 
 5. When line 13 invokes the `baz` function, which `foo` will be assigned a value of `bam`? More specifically, `bam` will be assigned to the `foo` in ??? scope. Give a brief description in your own words to support your conclusion.
 
