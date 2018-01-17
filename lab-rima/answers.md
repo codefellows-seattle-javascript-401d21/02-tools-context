@@ -38,7 +38,8 @@
     - Please identify any variables/refs and which scope each belongs to?
 
 -- Three scopes.
-    - 1. Global scope: Line 3, 5, 6, 14, 16, 17, 18, 19; foo, bar
+    
+    - 1. Global scope: Line 3, 5, 6, 14, 16, 17, 18, 19; foo, bar    
     - 2. Scope of function bar: Line 6 - 13 (except 'foo' passed into function baz); foo, baz
     - 3. Scope of funcion baz: Line 10, 11, the 'foo' in line 13; foo
 
