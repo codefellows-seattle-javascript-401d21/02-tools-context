@@ -12,10 +12,10 @@
     1. Line 3 is a declaration for variable foo. In global scope, foo is stored.
     2. Line 5 is a declaration for function bar. In global scope, bar is stored.
 * Scope of function bar
-    3. Line 6 is another declaration for variable foo. In scope of function bar, foo is stored but this foo is different from foo in global scope.
+    1. Line 6 is another declaration for variable foo. In scope of function bar, foo is stored but this foo is different from foo in global scope.
     4. Line 8 is a declaration for function baz. In scope of function bar, baz is stored.
 * Scope of function baz
-    5. Line 8, foo is passed to baz so it declares variable foo. This is different foo from two other foo that have been declared. In scope of function baz, foo is stored and this is different from the other foo that have been declared.
+    1. Line 8, foo is passed to baz so it declares variable foo. This is different foo from two other foo that have been declared. In scope of function baz, foo is stored and this is different from the other foo that have been declared.
 
 
 3. Write an explanation, using as much space as you need, relating to how the second stage of execution for this file operates.
@@ -26,10 +26,10 @@
     1. Line 3 checks if foo has been declared. Foo is in global scope so it assigns value 'bar' to it.
     2. Line 16 calls function bar.
 * Scope of function bar
-    3. Line 6 checks if foo has been declared and it is so assigns value 'baz' to it.
+    1. Line 6 checks if foo has been declared and it is so assigns value 'baz' to it.
     4. Line 13 calls function baz.
 * Scope of function baz
-    5. Line 10 checks if foo has been declared and it is so assigns value 'bam' to it.
+    1. Line 10 checks if foo has been declared and it is so assigns value 'bam' to it.
     6. Line 11 checks if bam has been declared and it isn't in the current scope so it looks up in scope of funciton bar and still it's not declared. It looks up in global scope, and it's not there so it throws a Reference error. This terminates the program.
 
 
