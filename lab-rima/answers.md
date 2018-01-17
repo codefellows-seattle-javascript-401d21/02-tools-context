@@ -36,17 +36,21 @@
 4. During the second stage of execution how many scopes have been registered by the engine?
     - Which segments of the code do they belong to?
     - Please identify any variables/refs and which scope each belongs to?
+
 -- Three scopes.
     - 1. Global scope: Line 3, 5, 6, 14, 16, 17, 18, 19; foo, bar
     - 2. Scope of function bar: Line 6 - 13 (except 'foo' passed into function baz); foo, baz
     - 3. Scope of funcion baz: Line 10, 11, the 'foo' in line 13; foo
 
 5. When line 13 invokes the `baz` function, which `foo` will be assigned a value of `bam`? More specifically, `bam` will be assigned to the `foo` in ??? scope. Give a brief description in your own words to support your conclusion.
+
 -- Variable 'foo' has been declared in scope of function baz (which is the scope of the time line 13 was invoked) so this foo will be assigned a value 'bam'. To clarify, this foo is not the other 'foo's that have been declared in scope of function bar and global scope.
 
 6. Which scope, if any, will the variable `bam` on line 11 be registered to when the first stage of execution occurs on this file? Provide a brief description in your own words to support your conclusion.
+
 -- Variable 'bam' will never be registered in any scope because there is no declaration for bam with key like var, let, const.
 
 7. For each line, 16 through 19, what is the return value for each?
+
 -- Since Line 16 throws an Reference error, none of them will be executed so they return nothing.
 
