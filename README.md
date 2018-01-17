@@ -38,4 +38,3 @@ Given the code linked [HERE](https://gist.github.com/sjschmidt44/556d31146a2b1ff
 
 7. For each line, 16 through 19, what is the return value for each?
 
-
