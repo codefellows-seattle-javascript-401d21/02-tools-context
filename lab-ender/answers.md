@@ -11,37 +11,111 @@ _Compilation and execution, in that order._
     
     Compile
     
-        _compiler finds var declaration, foo, in global scope_
+        compiler finds var declaration, foo, in global scope
 
-            _global scope registers foo_
+            global scope registers foo
 
-        _compiler finds function declaration, bar(), in global scope_
+        compiler finds function declaration, bar(), in global scope
 
-            _global scope registers bar()_
+            global scope registers bar()
 
-        _compiler finds var declaration, foo, in bar() scope_
+        compiler finds var declaration, foo, in bar() scope
 
-            _bar() scope registers foo_
+            bar() scope registers foo
 
-        _compiler finds function declaration, baz(), in bar() scope_
+        compiler finds function declaration, baz(), in bar() scope
 
-            _compiler finds var declaration, foo, in baz() scope_
+            compiler finds var declaration, foo, in baz() scope
 
-                _baz() scope registers foo_
+                baz() scope registers foo
 
-            _compiler finds var declaration, bam, in baz() scope_
-
-                _baz() scope registers bam_
 
 3. Write an explanation, using as much space as you need, relating to how the second stage of execution for this file operates.
     - For example, identify the high level steps in a line by line overview and then define what each of those steps are accomplishing.
+
+    Execute
+
+        line 3: execution finds reference to var foo, and requests it from global scope 
+
+            global scope has it, gives it to execution to assign
+        
+        line 16: execution finds reference to function bar, and requests it from global scope
+        
+            global scope has it, gives it to execution to execute
+        
+                line 6: execution finds reference to var foo in bar scope
+
+                    bar scope has it, gives it to execution to assign
+        
+                line 13: execution finds a reference to function baz in bar scope
+
+                    bar scope has it, gives it to execution to execute
+
+                        line 10: execution finds a reference to var foo in baz scope
+
+                            baz has it, gives it to execution for assignment
+
+                        line 11: execution finds a reference to var bam in baz scope
+                        
+                            baz doesn't have it
+                          
+                execution checks if var bam exists in bar scope
+                    
+                    bar doesn't have it
+            
+        execution checks if var bam exists in global scope
+
+            global doesn't have it and --
+
+                -- will create it if no "strict mode"
+
+                -- will throw an error if in "strict mode"
+        
+        line 17: execution finds a reference to var foo in global scope
+        
+            global scope has it, gives it to execution, it returns 'bar'
+        
+        line 18: execution finds a reference to var bam in global scope
+        
+            if not in "strict mode", global has it, gives it to execution, it returns 'yay'
+        
+        line 19: execution finds a reference to function baz() in global scope
+
+            global scope doesn't have it, throws a reference error
+
+          
 
 4. During the second stage of execution how many scopes have been registered by the engine?
     - Which segments of the code do they belong to?
     - Please identify any variables/refs and which scope each belongs to?
 
+    SCOPES, fn()s, vars
+        
+        GLOBAL
+
+            foo
+        
+            bam [when not in "strict mode"]
+        
+            bar() [BAR]
+        
+                foo
+        
+                baz() [BAZ]
+        
+                    foo
+                      
 5. When line 13 invokes the `baz` function, which `foo` will be assigned a value of `bam`? More specifically, `bam` will be assigned to the `foo` in ??? scope. Give a brief description in your own words to support your conclusion.
+
+    `bam` will be assigned to the `foo` in `baz` scope. This is because foo is defined as a parameter of the function `baz`, so this is a new var by the same name as the `global` (and `bar`) scope var.
 
 6. Which scope, if any, will the variable `bam` on line 11 be registered to when the first stage of execution occurs on this file? Provide a brief description in your own words to support your conclusion.
 
+    If not in `'strict mode'`, bam will be assigned to `global` scope. This is because it is not declared with `var`, `const`, or `let`, so the execution will trace it all the way back to `global`, which also won't have it. `Global` will register it then. 
+
 7. For each line, 16 through 19, what is the return value for each?
+
+    `bar();` returns `undefined`
+    `foo;` returns `bar`
+    `bam;` returns `yay` (when not in `'strict mode'`)
+    `baz();` returns a reference error, as it's outside of `bar` scope
