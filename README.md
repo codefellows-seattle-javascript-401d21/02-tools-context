@@ -1,18 +1,6 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) 02: Tools and Context
 ======
 
-## Submission Instructions
-* Work in a fork of this repository
-* Work in a branch on your fork
-* Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* Open a pull request to this repository
-* Submit on canvas a question and observation, how long you spent, and a link to your pull request
-
-## Configuration
-Configure the root of your repository with the following files and directories. Thoughtfully name and organize any additional configuration or module files.
-* **README.md** - contains documentation
-
-
 ## Feature Tasks
 #### Scope and Context
 Given the code linked [HERE](https://gist.github.com/sjschmidt44/556d31146a2b1ff3be84820e5fc06959), answer the set of questions below. Please copy the questions to your lab directory in a file called `answers.md`.
@@ -37,5 +25,3 @@ Given the code linked [HERE](https://gist.github.com/sjschmidt44/556d31146a2b1ff
 6. Which scope, if any, will the variable `bam` on line 11 be registered to when the first stage of execution occurs on this file? Provide a brief description in your own words to support your conclusion.
 
 7. For each line, 16 through 19, what is the return value for each?
-
-
