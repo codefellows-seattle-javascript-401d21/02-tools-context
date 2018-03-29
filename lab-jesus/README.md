@@ -1,35 +1,11 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) 02: Tools and Context
 ======
-
-## Submission Instructions
-* Work in a fork of this repository
-* Work in a branch on your fork
-* Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* Open a pull request to this repository
-* Submit on canvas a question and observation, how long you spent, and a link to your pull request
-
-## Configuration
-Configure the root of your repository with the following files and directories. Thoughtfully name and organize any additional configuration or module files.
-* **README.md** - contains documentation
-
-
-## Feature Tasks
-#### Scope and Context
-Given the code linked [HERE](https://gist.github.com/sjschmidt44/556d31146a2b1ff3be84820e5fc06959), answer the set of questions below. Please copy the questions to your lab directory in a file called `answers.md`.
-
-
-
 #### Questions:
 1. When this code is run in Node, e.g. `node index.js`, what are the two stages of execution for this file called, and which order do they happen in?
-    1. The code is first 'compiled' then it is 'executed';
 
 2. Write an explanation, using as much space as you need, relating to how the first stage of execution for this file operates.
     - For example, identify the high level steps in a line by line overview and then define what each of those steps are accomplishing.
     Using the chrome browser as an example:
-   1. the JS engine sees that the code in this document should be read with the 'use strict' rules.
-   3. the JS engine sees that the string 'bar' is assigned to the variable bar
-   5. a function is defined that is called bar
-   6. a string 'baz' is assigned to the var foo within the scope of the bar function
 
 3. Write an explanation, using as much space as you need, relating to how the second stage of execution for this file operates.
     - For example, identify the high level steps in a line by line overview and then define what each of those steps are accomplishing.
